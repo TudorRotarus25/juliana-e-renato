@@ -5,7 +5,7 @@
     </h2>
     <div class="guestInfo__container">
       <div class="guestsDropDown">
-        <sui-dropdown
+        <v-select
           v-model="currentGuest"
           :options="guests"
           fluid
@@ -18,33 +18,19 @@
         v-show="currentGuest"
         class="guestInfo__rsvp"
       >
-        <sui-form>
-          <sui-form-fields inline>
-            <sui-form-field>
-              <sui-checkbox
-                label="Sim"
-                radio
-                value="yes"
-                v-model="rsvp"
-              />
-            </sui-form-field>
-            <sui-form-field>
-              <sui-checkbox
-                label="No"
-                radio
-                value="no"
-                v-model="rsvp"
-              />
-            </sui-form-field>
-          </sui-form-fields>
-        </sui-form>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import VueSelect from 'vue-select/src/components/Select.vue';
+
 export default {
+  components: {
+    'v-select': VueSelect,
+  },
   name: 'GuestInfo',
   data() {
     return {
