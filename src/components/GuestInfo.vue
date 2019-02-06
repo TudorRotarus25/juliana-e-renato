@@ -1,14 +1,20 @@
 <template>
   <div class="guestInfo">
-    <h2 class="guestInfo__title">
-      Confirme sua presença
+    <h2 class="guestInfo__title bordered-title">
+      CONFIRMAÇÃO DE PRESENÇA
     </h2>
     <div class="guestInfo__container">
-      <p class="instructions">
-        Selecione seu nome (e/ou familia) na lista abaixo e confirme sua presença na
-        cerimônia. Caso alguém de sua familia não possa comparecer, por favor nos informe na caixa
-        de observações.
-      </p>
+      <div class="instructions">
+        <p>
+          O nosso casamento não será o mesmo sem você. Por isso é muito importante que confirme a
+          sua presença.
+        </p>
+        <p>
+          Selecione seu nome (e/ou familia) na lista abaixo e confirme sua presença na
+          cerimônia. Caso alguém de sua familia não possa comparecer, por favor nos informe na caixa
+          de observações.
+        </p>
+      </div>
       <div class="guestsDropDown">
         <form action="">
           <v-select
@@ -114,7 +120,11 @@ export default {
 
     .instructions {
       max-width: 850px;
-      margin: 50px auto 30px;
+      margin: 10px auto 50px;
+
+      p {
+        margin: 20px 0;
+      }
     }
   }
 

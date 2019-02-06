@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <invitation-details />
+    <hero />
+    <intro />
     <guest-info />
     <location-map />
     <wedding-footer />
@@ -8,7 +9,8 @@
 </template>
 
 <script>
-import InvitationDetails from './components/InvitationDetails.vue';
+import Hero from './components/Hero.vue';
+import Intro from './components/Intro.vue';
 import GuestInfo from './components/GuestInfo.vue';
 import LocationMap from './components/LocationMap.vue';
 import WeddingFooter from './components/WeddingFooter.vue';
@@ -16,7 +18,8 @@ import WeddingFooter from './components/WeddingFooter.vue';
 export default {
   name: 'app',
   components: {
-    InvitationDetails,
+    Hero,
+    Intro,
     GuestInfo,
     LocationMap,
     WeddingFooter,
@@ -53,10 +56,12 @@ h1 {
 
 h2 {
   font-family: 'Alexis Marie', Helvetica, Arial, sans-serif;
+  font-size: 1em;
 }
 
 p {
   margin: 5px 0;
+  line-height: 1.1;
 }
 
 a {
@@ -108,11 +113,19 @@ a {
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.bordered-title {
+  border: 2px solid #fff;
+  display: inline-block;
+  padding: 5px 30px;
+  text-transform: uppercase;
+}
+
 #app {
   font-family: 'Alexis Marie', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+  background-color: #b9def5;
 }
 </style>
