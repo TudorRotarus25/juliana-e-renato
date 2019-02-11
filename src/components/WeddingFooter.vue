@@ -1,6 +1,8 @@
 <template>
   <footer>
-    Oi
+    Juliana
+    <i class="fas fa-heart" />
+    Renato
   </footer>
 </template>
 
@@ -15,8 +17,13 @@ export default {
   scoped
 >
   footer {
-    border-top: 1px solid #26445e;
+    border-top: 1px solid #fff;
     padding: 20px;
-    margin-top: 100px;
+    margin-top: 150px;
+
+    i {
+      font-size: 0.7em;
+      margin: 0 5px;
+    }
   }
 </style>

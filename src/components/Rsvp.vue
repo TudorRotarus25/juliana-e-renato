@@ -1,9 +1,9 @@
 <template>
-  <div class="guestInfo">
-    <h2 class="guestInfo__title bordered-title">
+  <div class="rsvp">
+    <h2 class="rsvp__title bordered-title">
       CONFIRMAÇÃO DE PRESENÇA
     </h2>
-    <div class="guestInfo__container">
+    <div class="rsvp__container">
       <div class="instructions">
         <p>
           O nosso casamento não será o mesmo sem você. Por isso é muito importante que confirme a
@@ -16,7 +16,7 @@
         </p>
       </div>
       <div class="guestsDropDown">
-        <form action="">
+        <form @submit="onSubmit">
           <v-select
             v-model="currentGuest"
             :options="guests"
@@ -33,7 +33,7 @@
               :value="true"
             >
             <label for="rsvp-yes">
-              Sim, tô dentro
+              Sim, estarei lá
             </label>
             <input
               id="rsvp-no"
@@ -42,7 +42,7 @@
               :value="false"
             >
             <label for="rsvp-no">
-              Não, tô fora
+              Não, não irei
             </label>
           </div>
           <textarea
@@ -60,7 +60,7 @@
       </div>
       <div
         v-show="currentGuest"
-        class="guestInfo__rsvp"
+        class="rsvp__rsvp"
       >
 
       </div>
@@ -75,7 +75,7 @@ export default {
   components: {
     'v-select': VueSelect,
   },
-  name: 'GuestInfo',
+  name: 'Rsvp',
   data() {
     return {
       rsvp: null,
@@ -92,6 +92,12 @@ export default {
       ],
     };
   },
+  methods: {
+    onSubmit(event) {
+      event.preventDefault();
+      alert('Yo!');
+    },
+  },
 };
 </script>
 
@@ -99,7 +105,9 @@ export default {
   lang="scss"
   scoped
 >
-  .guestInfo {
+  @import '../styling/variables';
+
+  .rsvp {
     text-align: center;
 
     &__title {
@@ -131,6 +139,17 @@ export default {
   .guestsDropDown {
     width: 500px;
     margin: auto;
+
+    /deep/.dropdown-toggle {
+      color: $primary;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid lighten($primary, 10%);
+
+      &::placeholder {
+        color: lighten(#495057, 40%);
+      }
+    }
   }
 
   .submit-button {

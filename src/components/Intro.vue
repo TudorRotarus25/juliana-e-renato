@@ -26,7 +26,7 @@ export default {
   scoped
 >
   .intro {
-    margin: 50px auto;
+    margin: 70px auto;
     max-width: 800px;
 
     p {
