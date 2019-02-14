@@ -27,6 +27,7 @@
           />
           <div class="input-group rsvp-radios">
             <input
+              v-model="rsvp"
               id="rsvp-yes"
               name="rsvp"
               type="radio"
@@ -36,6 +37,7 @@
               Sim, estarei lá
             </label>
             <input
+              v-model="rsvp"
               id="rsvp-no"
               name="rsvp"
               type="radio"
@@ -46,6 +48,7 @@
             </label>
           </div>
           <textarea
+            v-model="comments"
             class="form-control"
             name="comments"
             placeholder="Observações"
@@ -58,17 +61,12 @@
           </button>
         </form>
       </div>
-      <div
-        v-show="currentGuest"
-        class="rsvp__rsvp"
-      >
-
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import VueSelect from 'vue-select/src/components/Select.vue';
 
 export default {
@@ -80,22 +78,52 @@ export default {
     return {
       rsvp: null,
       currentGuest: null,
-      guests: [
-        {
-          label: 'Mariana & Tudor',
-          value: '1234',
-        },
-        {
-          label: 'Julio & Iara',
-          value: '1235',
-        },
-      ],
+      comments: '',
+      guests: [],
     };
+  },
+  mounted() {
+    this.populateGuests();
   },
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      alert('Yo!');
+
+      const data = {
+        guestId: this.currentGuest.id,
+        rsvp: this.rsvp,
+        comments: this.comments,
+      };
+
+      axios.post('/guests', data).then((response) => {
+        if (response.status === 200) {
+          alert('Submitted data');
+          this.populateGuests();
+        }
+      });
+    },
+    populateGuests() {
+      axios.get('/guests').then((response) => {
+        if (response.status === 200 && response.data && response.data.guests) {
+          this.guests = response.data.guests.map(guest => ({
+            ...guest,
+            rsvp: guest.rsvp === null ? null : !!guest.rsvp,
+            label: guest.name,
+            value: guest.id,
+          }));
+        }
+      });
+    },
+  },
+  watch: {
+    currentGuest(guest) {
+      if (guest) {
+        this.rsvp = guest.rsvp;
+        this.comments = guest.comments;
+      } else {
+        this.rsvp = null;
+        this.comments = '';
+      }
     },
   },
 };
