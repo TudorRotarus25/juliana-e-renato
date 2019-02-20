@@ -15,7 +15,23 @@
           de observações.
         </p>
       </div>
-      <div class="guestsDropDown">
+      <div
+        class="rsvp__spinner"
+        v-if="isLoading"
+      >
+        <i class="fas fa-3x fa-spinner fa-pulse" />
+      </div>
+      <div
+        class="rsvp__successMessage"
+        v-else-if="isSuccess"
+      >
+        <i class="far fa-check-circle"></i>
+        Enviado com sucesso!
+      </div>
+      <div
+        v-else
+        class="guestsDropDown"
+      >
         <form @submit="onSubmit">
           <v-select
             v-model="currentGuest"
@@ -56,6 +72,7 @@
           <button
             class="btn btn-primary submit-button"
             type="submit"
+            :disabled="isSubmitDisabled"
           >
             Enviar
           </button>
@@ -76,11 +93,18 @@ export default {
   name: 'Rsvp',
   data() {
     return {
+      isLoading: false,
+      isSuccess: false,
       rsvp: null,
       currentGuest: null,
       comments: '',
       guests: [],
     };
+  },
+  computed: {
+    isSubmitDisabled() {
+      return !this.currentGuest || this.rsvp === null;
+    },
   },
   mounted() {
     this.populateGuests();
@@ -88,6 +112,8 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
+
+      this.isLoading = true;
 
       const data = {
         guestId: this.currentGuest.id,
@@ -97,8 +123,8 @@ export default {
 
       axios.post('/guests', data).then((response) => {
         if (response.status === 200) {
-          alert('Submitted data');
-          this.populateGuests();
+          this.isLoading = false;
+          this.isSuccess = true;
         }
       });
     },
@@ -119,10 +145,8 @@ export default {
     currentGuest(guest) {
       if (guest) {
         this.rsvp = guest.rsvp;
-        this.comments = guest.comments;
       } else {
         this.rsvp = null;
-        this.comments = '';
       }
     },
   },
@@ -142,6 +166,18 @@ export default {
       margin: 20px 0;
     }
 
+    &__successMessage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        font-size: 1.5em;
+        color: #20b141;
+        margin-right: 10px;
+      }
+    }
+
     .rsvp-radios {
       margin: 20px 0;
 
@@ -155,7 +191,7 @@ export default {
     }
 
     .instructions {
-      max-width: 850px;
+      max-width: 1200px;
       margin: 10px auto 50px;
 
       p {

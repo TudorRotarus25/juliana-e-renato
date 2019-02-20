@@ -25,7 +25,7 @@ export default {
       const weddingDate = new Date(2019, 4, 26);
       const currentDate = new Date();
 
-      return Math.floor(Math.abs((currentDate.getTime() - weddingDate.getTime()) / oneDay));
+      return Math.ceil(Math.abs((currentDate.getTime() - weddingDate.getTime()) / oneDay));
     },
   },
 };

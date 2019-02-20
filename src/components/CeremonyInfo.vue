@@ -33,7 +33,7 @@
         TRAJE
       </p>
       <p>
-        O nosso casamento será em um sitio ao ar livre. E apesar da cerimonia e recepção
+        O nosso casamento será em um sitio ao ar livre. E apesar da cerimônia e recepção
         serem durante o dia, não podemos nos esquecer que será no outono.
       </p>
       <p>
@@ -67,7 +67,7 @@ export default {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 150px auto 100px;
 
     p {

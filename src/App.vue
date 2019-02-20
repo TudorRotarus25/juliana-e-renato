@@ -44,14 +44,13 @@ export default {
   }
 
   html {
-    font-size: 25px;
+    font-size: 28px;
     background-color: $background;
   }
 
   body {
     margin: 0;
     padding: 0;
-    font-size: 25px;
   }
 
   h1 {
@@ -103,6 +102,11 @@ export default {
       color: #fff;
       background-color: $primary;
       border-color: darken($primary, 5%);
+
+      &:disabled {
+        opacity: .65;
+        cursor: no-drop;
+      }
     }
   }
 

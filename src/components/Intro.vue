@@ -27,7 +27,7 @@ export default {
 >
   .intro {
     margin: 70px auto;
-    max-width: 800px;
+    max-width: 1200px;
 
     p {
       margin: 20px 0;
