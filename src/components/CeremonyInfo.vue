@@ -68,14 +68,22 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 150px auto 100px;
+    margin: 50px auto;
+
+    @media screen and (min-width: 768px) {
+      margin: 150px auto 100px;
+    }
 
     p {
       margin: 12px;
     }
 
     &__details {
-      flex-basis: 50%;
+      flex-basis: 100%;
+
+      @media screen and (min-width: 768px) {
+        flex-basis: 50%;
+      }
 
       .bordered-title {
         margin-top: 5px;
@@ -83,7 +91,13 @@ export default {
     }
 
     &__map {
-      flex-basis: 50%;
+      flex-basis: 100%;
+      padding: 20px 10px 5px;
+
+      @media screen and (min-width: 768px) {
+        flex-basis: calc(50% - 10px);
+        padding: 0;
+      }
 
       a {
         display: inline-block;
@@ -96,7 +110,9 @@ export default {
     }
 
     &__extraInfo {
-      margin: 20px 0;
+      @media screen and (min-width: 768px) {
+        margin: 20px 0;
+      }
     }
   }
 </style>

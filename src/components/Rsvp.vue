@@ -29,8 +29,8 @@
         Enviado com sucesso!
       </div>
       <div
-        v-else
         class="guestsDropDown"
+        v-else
       >
         <form @submit="onSubmit">
           <v-select
@@ -179,7 +179,11 @@ export default {
     }
 
     .rsvp-radios {
-      margin: 20px 0;
+      margin: 10px 0;
+
+      @media screen and (min-width: 768px) {
+        margin: 20px 0;
+      }
 
       label {
         margin-right: 15px;
@@ -192,16 +196,26 @@ export default {
 
     .instructions {
       max-width: 1200px;
-      margin: 10px auto 50px;
+      margin: 10px auto 20px;
+      padding: 0 10px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 50px;
+      }
 
       p {
-        margin: 20px 0;
+        margin: 10px 0;
+
+        @media screen and (min-width: 768px) {
+          margin: 20px 0;
+        }
       }
     }
   }
 
   .guestsDropDown {
-    width: 500px;
+    max-width: 500px;
+    padding: 10px;
     margin: auto;
 
     /deep/.dropdown-toggle {
@@ -219,6 +233,10 @@ export default {
   .submit-button {
     display: block;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 20px;
+    }
   }
 </style>

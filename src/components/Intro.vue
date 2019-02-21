@@ -26,11 +26,20 @@ export default {
   scoped
 >
   .intro {
-    margin: 70px auto;
+    margin: 30px auto;
+    padding: 0 10px;
     max-width: 1200px;
 
+    @media screen and (min-width: 768px) {
+      margin: 70px auto;
+    }
+
     p {
-      margin: 20px 0;
+      margin: 10px 0;
+
+      @media screen and (min-width: 768px) {
+        margin: 20px 0;
+      }
     }
   }
 </style>

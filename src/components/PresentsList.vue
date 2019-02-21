@@ -27,8 +27,19 @@ export default {
   lang="scss"
   scoped
 >
+  .presentsList {
+    padding: 0 10px;
+
+    p {
+      margin-top: 20px;
+    }
+  }
+
   i {
-    font-size: 1.7em;
     margin-right: 10px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.7em;
+    }
   }
 </style>

@@ -44,8 +44,12 @@ export default {
   }
 
   html {
-    font-size: 28px;
+    font-size: 20px;
     background-color: $background;
+
+    @media screen and (min-width: 768px) {
+      font-size: 28px;
+    }
   }
 
   body {
@@ -55,8 +59,12 @@ export default {
 
   h1 {
     font-family: 'Admiration Pains', Helvetica, Arial, sans-serif;
-    font-size: 2.5em;
+    font-size: 1.7em;
     letter-spacing: 6px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.5em;
+    }
   }
 
   h2 {
@@ -134,6 +142,7 @@ export default {
     border: 2px solid #fff;
     display: inline-block;
     padding: 5px 30px;
+    margin: 0 10px;
     text-transform: uppercase;
   }
 
