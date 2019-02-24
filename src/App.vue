@@ -59,11 +59,20 @@ export default {
 
   h1 {
     font-family: 'Admiration Pains', Helvetica, Arial, sans-serif;
-    font-size: 1.7em;
-    letter-spacing: 6px;
+    font-size: 1.15em;
+    letter-spacing: 4px;
+
+    @media screen and (min-width: 450px) {
+      font-size: 1.7em;
+      letter-spacing: 6px;
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 2.5em;
+    }
+
+    @media screen and (min-width: 1024px) {
+      letter-spacing: 10px;
     }
   }
 

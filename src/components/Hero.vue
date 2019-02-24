@@ -77,7 +77,9 @@ export default {
       margin: 0;
 
       @media screen and (min-width: 768px) {
+        text-shadow: 0 0 10px rgba(0, 0, 0, .6);
         position: relative;
+        margin-top: 5px;
         bottom: 0;
       }
     }
