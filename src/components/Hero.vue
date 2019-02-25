@@ -46,6 +46,7 @@ export default {
 
   .invitationDetails {
     height: calc(100vh - 22px);
+    height: calc(var(--vh, 1vh) * 100 - 22px);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -55,6 +56,7 @@ export default {
 
     @media screen and (min-width: 768px) {
       height: calc(100vh - 62px);
+      height: calc(var(--vh, 1vh) * 100 - 62px);
     }
 
     &__main {
